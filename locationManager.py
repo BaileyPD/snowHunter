@@ -13,11 +13,12 @@ location_header = ['Detailed Name', 'Actual Name', 'latitude', 'longitude']
 #
 
 # Function to return a list of locations with names, latitudes, longitudes
+def return_locations() -> pd.DataFrame:
+    if exists(location_file):
+        return pd.read_csv(filepath_or_buffer=location_file, header=0)
+    else:
+        raise ValueError("No locations file path yet")
 
-
-# def returnLoocations():
-#
-#
 # def readLocation():
 #
 #TODO Change to pandas.concat instead of append
@@ -25,8 +26,8 @@ def write_location(detail_name: str, actual_name: str, long: float, lat: float) 
     # Checks if locations.csv exists, if not sets it up with proper headers
     if exists(location_file):
         data = pd.read_csv(filepath_or_buffer=location_file, header= 0)
-        print("Found file")
-        print(data)
+        # print("Found file")
+        # print(data)
     else:
         data = pd.DataFrame(columns=location_header)
 
@@ -36,7 +37,7 @@ def write_location(detail_name: str, actual_name: str, long: float, lat: float) 
     added_data = pd.DataFrame(columns=location_header, data=data_entry)
     # Appends data to existing data
     data = data.append(other=added_data, ignore_index=False)
-    print(data)
+    # print(data)
     # Returns data to CSV file
     data.to_csv(path_or_buf=location_file,index=False)
     return data
