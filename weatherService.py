@@ -1,10 +1,10 @@
 import configparser
 
-configParser = configparser.ConfigParser()
-configFilePath = r'/Users/mike/PycharmProjects/snowHunter/config.txt'
-configParser.read(configFilePath)
+config = configparser.ConfigParser()
+configFilePath = r'/Users/mike/PycharmProjects/snowHunter/settings.cfg'
+config.read(configFilePath)
 
-api_key = configParser('Key Section', 'api_key')
+api_key = config['general']['apikey']
 
 
 def getWeather():
