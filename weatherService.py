@@ -13,11 +13,9 @@ Base_URL = 'https://api.openweathermap.org/data/2.5/forecast'
 
 def get_weather(latitude: float, longitude: float):
     URL = '?lat=' + str(latitude) + "&lon=" + str(longitude) + "&appid=" + api_key + "&units=imperial"
-    print(URL)
     combined_url = Base_URL + URL
-    print(combined_url)
     response = requests.get(combined_url)
-    print(response)
+    print("Full Response: " + str(response))
     if response.status_code == 200:
         data = response.json()
         print(data)

@@ -1,4 +1,6 @@
 import locationManager
+import updateManager
+
 
 # Basic functionality for a simple terminal menu
 
@@ -6,11 +8,11 @@ import locationManager
 def menu_main():
     # print("Would you like to review location forecasts? Y/N")
     if input("Would you like to review location forecasts? Y/N: ") == "Y":
-        try:
-            print(locationManager.return_locations())
-        except:
-            if input("There are no locations saved. Would you like to add one? Y/N: ") == 'Y':
-                add_new_location()
+        # try:
+        updateManager.update_all_weather()
+        # except:
+        #     if input("There are no locations saved. Would you like to add one? Y/N: ") == 'Y':
+        #         add_new_location()
         menu_main()
     else:
         if input("Would you like to review current locations? Y/N: ") == "Y":
@@ -47,6 +49,8 @@ def review_locations_menu():
 def edit_locations():
     entryToEdit = locationManager.get_specific_entry(int(input("Enter number of location to edit: ")))
     print(entryToEdit)
+
+
 
 
 def remove_location():

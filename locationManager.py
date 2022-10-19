@@ -26,8 +26,6 @@ def write_location(detail_name: str, actual_name: str, long: float, lat: float) 
     # Checks if locations.csv exists, if not sets it up with proper headers
     if exists(location_file):
         data = pd.read_csv(filepath_or_buffer=location_file, header= 0)
-        # print("Found file")
-        # print(data)
     else:
         data = pd.DataFrame(columns=location_header)
 
@@ -35,10 +33,7 @@ def write_location(detail_name: str, actual_name: str, long: float, lat: float) 
     data_entry = [[detail_name, actual_name, long, lat]]
     # Puts new data in proper data frame format
     added_data = pd.DataFrame(columns=location_header, data=data_entry)
-    # Appends data to existing data
-    # data = data.append(other=added_data, ignore_index=False)
     data = pd.concat((data,added_data), axis=0)
-    # print(data)
     # Returns data to CSV file
     data.to_csv(path_or_buf=location_file,index=False)
     return data
