@@ -3,7 +3,8 @@ import weatherService as ws
 import locationManager as lm
 
 if __name__ == '__main__':
-    menuManager.menu_main()
+    menuManager.edit_locations()
+    #menuManager.menu_main()
     # lm.write_location(detail_name="Test3", actual_name="Test 5", long= 56789, lat=912345)
     # print("Printing Locations: ")
     # print(lm.return_locations())
