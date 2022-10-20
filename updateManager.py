@@ -13,3 +13,11 @@ def update_all_weather():
         longitude = x[3]
         print("______________" + x[1] + "______________")
         weatherService.get_weather(latitude=latitude, longitude=longitude)
+
+
+def update_specific_location(index: int):
+    locations = locationManager.return_locations()
+    locations = locations.values.tolist()
+    latitude = locations[index][2]
+    longitude = locations[index][3]
+    weatherService.get_weather(latitude=latitude, longitude=longitude)
