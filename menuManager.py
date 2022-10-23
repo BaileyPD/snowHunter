@@ -24,20 +24,6 @@ def menu_main():
         menu_main()
     elif selection == 4:
         exit()
-    # if input("Would you like to review location forecasts? Y/N: ") == "Y":
-    #     forecast_menu()
-    #     menu_main()
-    # elif input("Would you like to review current locations? Y/N: ") == "Y":
-    #     print(locationManager.return_locations())
-    #     menu_main()
-    # elif input("Would you like to add a new location? Y/N: ") == "Y":
-    #     add_new_location()
-    #     menu_main()
-    # else:
-    #     if input("Would you like to exit? Y/N: ") == "Y":
-    #         exit()
-    #     else:
-    #         menu_main()
 
 
 def add_new_location():
@@ -83,7 +69,7 @@ def forecast_menu():
         updateManager.update_all_weather()
     elif selection == 2:
         print(locationManager.return_locations())
-        updateManager.update_specific_location(int(input("Enter the number of the location to review")))
+        updateManager.update_specific_location(int(input("Enter the number of the location to review: ")))
     elif selection == 3:
         menu_main()
     else:
